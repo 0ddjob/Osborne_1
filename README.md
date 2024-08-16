@@ -15,6 +15,12 @@ Differences between ROM v1.4 and v1.44 include:
 ; SELDRV - changed start up delay to 500 ms
 ```
 
+![Image of OCC v1.40 ROM](/images/OCC_v14.jpg)
+
+![Image of OCC character ROM](/images/OCC_char.jpg)
+
+![Image of OZROM](/images/OZROM_1E.jpg)
+
 ## [Daughterboard](/2732-to-2764)
 [Coming Soon] ROM daughterboard to accomodate 28-pin 2764 (8KByte) EPROM in the Osborne's 24-pin 2732 (4KByte) BIOS socket.
 
