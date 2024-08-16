@@ -14,11 +14,13 @@ Differences between ROM v1.4 and v1.44 include:
 ; PSEKC - added disk head settle delay
 ; SELDRV - changed start up delay to 500 ms
 ```
-
+### OCC v1.4 ROM
 ![Image of OCC v1.40 ROM](/images/OCC_v14.jpg)
 
+### OCC Character Generator ROM
 ![Image of OCC character ROM](/images/OCC_char.jpg)
 
+### OZROM
 ![Image of OZROM](/images/OZROM_1E.jpg)
 
 ## [Daughterboard](/2732-to-2764)
