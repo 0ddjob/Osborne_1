@@ -26,3 +26,7 @@ Differences between ROM v1.4 and v1.44 include:
 ## [Daughterboard](/2732-to-2764)
 [Coming Soon] ROM daughterboard to accomodate 28-pin 2764 (8KByte) EPROM in the Osborne's 24-pin 2732 (4KByte) BIOS socket.
 
+## [Gotek Single Density Disk Images](/Gotek/SingleDensity)
+Big thanks to [Dave Dunfield](http://dunfield.classiccmp.org/index.htm) for the original ImageDisk-format (IMD) disk images.
+
+
