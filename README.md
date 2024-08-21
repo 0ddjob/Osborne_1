@@ -27,7 +27,7 @@ Differences between ROM v1.4 and v1.44 include:
 [21-Aug-2024: sent to PCBWAY for fabbing test boards]  
 ROM daughterboard to accomodate 28-pin 2764 (8KByte) EPROM in the Osborne's 24-pin 2732 (4KByte) BIOS socket.  Idea is to allow switching between the official Osborne ROM and the 3rd party OZROM.
 
-## [Gotek Single Density Disk Images](/Gotek/SingleDensity)
+## [Using A Gotek](/Gotek)
 Big thanks to [Dave Dunfield](http://dunfield.classiccmp.org/index.htm) for the original ImageDisk-format (IMD) disk images.
 
 How to tell if an Osborne 1 disk image is single density (SD) or double density (DD)?
