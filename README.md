@@ -30,4 +30,14 @@ ROM daughterboard to accomodate 28-pin 2764 (8KByte) EPROM in the Osborne's 24-p
 ## [Gotek Single Density Disk Images](/Gotek/SingleDensity)
 Big thanks to [Dave Dunfield](http://dunfield.classiccmp.org/index.htm) for the original ImageDisk-format (IMD) disk images.
 
+How to tell if an Osborne 1 disk image is single density (SD) or double density (DD)?
+* SD disks have ten 256 byte sectors per track (2560 bytes/track)
+* DD disks have five 1024 byte sectors per track (5120 bytes/track)
+
+Example output of ```fsed.cpm``` info command on an IMG disk image:
+```
+              Sector length: 1024
+           Number of tracks: 40
+          Sectors per track: 5
+```
 
