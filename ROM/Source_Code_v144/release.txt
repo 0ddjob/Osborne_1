@@ -1,0 +1,54 @@
+Osborne Computer Corporation
+42680 Christy Street
+Fremont, CA  94538
+(415) 490-6885
+
+August 1, 1985
+
+Mrs. Gale Rhoades
+FOG
+P. O. Box 3474
+Daly City, CA  94015
+
+Dear Gale,
+
+This letter is to extend official permission to the
+First Osborne Group (FOG) to reprint the schematics
+and copy BIOS source listing for the Osborne 1
+computer with the following conditions:
+
+The Osborne 1 schematics and BIOS listing are
+only for use by FOG and its members.
+
+Any money derived from the distribution of the
+schematics and BIOS listing shall go to the
+non-profit organization FOG.
+
+All such copies shall have the appropriate
+trademark and copyright notices either in
+machine readable format or printed on the
+paper.
+
+On any such copies the following notice shall
+appear:
+"This information is the exculsive property of
+Osborne Computer Corporation and cannot be
+sold in whole or in parts withour written
+permission from a duly authorized person from
+Osborne Computer Corporation.  Osborne Computer
+Corporation assumes no liability for any damage
+or loss of data due to modification to hardware
+or software implimented from the information
+supplied herein."
+
+Osborne Computer Corporation reserves the right
+to retract permission to duplicate and
+distribute the schematics and BIOS upon 60 days
+written notice to FOG.
+
+Sincerely,
+
+
+James P. Schwabe
+V.P. Product Marketing
+

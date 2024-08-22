@@ -1,0 +1,57 @@
+               GENERATION PROCEDURES FOR BIOS 1.41
+
+The following utilities are needed to generate the BIOS:
+
+	ACT version 3.5e
+	DDT version 2.2
+	SYSGEN revision 2.1
+	MOVCPM
+          
+The following BIOS source files are needed:
+
+	OCCBIO05.ASM
+	OCCBIO15.ASM
+	OCCBIO25.ASM
+	OCCBIO35.ASM
+	OCCBIO45.ASM
+	OCCBIO55.ASM
+	OCCBIO65.ASM
+	OCCBIO75.ASM
+	OCCBIO85.ASM
+	OCCBIO95.ASM
+
+	OCCRAM15.ASM
+	OCCRAM25.ASM
+   
+	OCCTXT6.AST
+
+Generation steps:
+
+	A>ACT OCCBIO05.ASM S=OCCTXT6.AST R=F L=A:
+
+	The assembly will generate the following files:
+
+		OCCBIO05.PRN - listing file including a full reference map
+     
+		OCCBIO05.HEX - hex output file 
+
+	To incorporate the BIOS into an existing CP/M system:
+
+	A>MOVCPM 59 *
+
+	A>SAVE 3¹ CPM59.COÍ           Save the old system as a .COÍ 
+                                      file
+	A>DDT CPM59.COM               Load the system into memory
+     
+	  -IOCCBIO05.HEX              Load the new BIOS into memory
+  	  -R3E8°                      with the specified  relocatioî 
+                                      value
+  	  -^C                         Exit DDT
+
+	A>SYSGEN
+
+	Responä tï thå SOURCÅ drivå prompô witè á <CR>®  Thió	
+        wilì 	resulô iî thå 'source§ systeí beinç thå currenô 
+        contentó oæ memoryŠ
+        Responä tï thå DESTINATIOÎ drivå prompô witè thå 
+        appropriatå drivå specification® 

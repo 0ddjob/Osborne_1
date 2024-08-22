@@ -1,0 +1,375 @@
+;OCCTXT6.AST
+	TITLE	'Osborne Computer Corp System Text.'
+
+SVER	=	14
+RSIZE	=	64	; default = 64k version
+
+;	True/False definitions
+
+FALSE	=	0
+TRUE	=	not FALSE
+	space	4,10
+ODEBUG	=	FALSE	;True for activating debug code
+SYcpm20	=	4	;=cpm 2.0
+SYcpm14	=	0
+SYmpm10	=	5
+SYcdos	=	3
+
+@CPM	SET	TRUE
+	space	4,10
+;	List output page/line/column definitions
+
+MLPP	=	66	;Number of lines per physical page
+LLP	=	60	;NUMBER OF LINES TO PRINT PER PAGN
+
+;	Disk type and speed constants
+
+SEEKTM	=	2	;if MPI, 0
+			;if Siemems then 2
+
+;	Assembly Constants
+;	Port definitions (Memory mapped)
+
+H.FDC	=	2100h		;Floppy disk
+H.KEY	=	2200h		;Keyboard
+H.SIO	=	2A00h		;Serial I/O
+H.VIO	=	2C00h		;Video memory controls
+
+SEKTMO	=	0FEh		;Seek Time Out error status
+
+;	SIO Interface and definitions
+
+H.SXMT	=	H.SIO+1		;Transmit address
+H.SREC	=	H.SIO+1		;Receive (read from address)
+H.SCTRL	=	H.SIO		;Set control reg	(write)
+H.SSTS	=	H.SIO		;Status reg		(read)
+
+;	Defined function codes
+
+SI.MRST	=	0_10_101_11b	;Master reset
+SI.S16	=	0_10_101_01b	;Select 16x clock, xmit/rec
+				;8 data, 1 stop bit
+				;RTS high (no request)
+SI.S64	=	0_10_101_10b	;Select 64x clock
+				;...all else identical to SI.S16
+
+SI.1200	=	SI.S16
+SI.300	=	SI.S64
+
+SI.RRDY	=	01		;Receiver ready
+SI.TRDY	=	02		;Transmit ready
+
+SI.NCTS	=	0000_1000b	; ~CTS
+SI.RERR	=	0111_0000b	;Rcvr err: PE, OVRN, FE
+
+H.IEEE	=	2900h		;IEEE interface
+
+CPDRA	=	H.IEEE+0	;Peripheral/Direction register A
+CCRA	=	H.IEEE+1	;Control register A
+CPDRB	=	H.IEEE+2	;Peripheral/Direction register B
+CCRB	=	H.IEEE+3	;Control register B
+
+ROMVEC	=	100h		;Start of rom vector
+BKPI	=	0CFh		;Breakpoint interrupt = 1
+NMIA	=	66h		;NMI address
+LCMDP	=	4*1024		;L command prom
+
+	MSG	'Assembly for 64k Mode 2 system'
+
+MRAM	=	0EA80h
+FWAVM	=	0F000h
+NVDL	=	24
+INTBL	=	0EFF0h		;interrupt vector table
+
+LVMEM	=	128*32		;Length of video memory
+LVDIS	=	128*NVDL	;Length of Display memory
+VFLO	=	-22		;First line video offset
+VLL	=	128		;Length of one video line
+VLDL	=	52		;Length of displayed char/line
+FWASM	=	FWAVM+VLDL	;Status info
+
+LWAMEM	=	FWAVM+LVMEM-1
+
+@FREQ	=	4000		;freq of processor
+SCLFRE	=	@FREQ/22	;for DELAY routine
+
+
+
+
+;	Define Ascii Control Codes.
+
+;		Value	;^Control	Meaning in Phoenix
+;---------------------------------------------------------
+
+EOS	=	0	;^@, NUL = End of String
+TBFCHR	=	'A'-40h	;^A, SOH = Tab with fill
+BTBCHR	=	02h	;^B, STX = BACK TAB CHARACTER
+ABTCHR	=	03h	;^C, ETX = ABORT CHARACTER
+BELCHR	=	07h	;^G, BEL = Audible Alarm
+BKSCHR	=	08h	;^H, BS  = PHYSICAL BACKSPACE CHARACTER
+TABCHR	=	09h	;^I, HT  = Tab 
+LF	=	0Ah	;^J, LF  = Line Feed
+VTAB	=	0Bh	;^K, VT  = Vertical Tab
+FMFD	=	0Ch	;^L, FF  = Form Feed
+CR	=	0Dh	;^M, CR  = Carriage Return
+LITCHR	=	0Eh	;^N, SO  = Literal next character
+SUSCHR	=	0Fh	;^O, SI  = SUSPEND CHARACTER
+RTYCHR	=	12h	;^R, DC2 = RE-TYPE LINE CHARACTER
+CTRU	=	15h	;^U, NAK = Cancel Line char
+BWDCHR	=	17h	;^W, ETB = Backspace ONE word
+CANCHR	=	18h	;^X, CAN = CANCEL LINE CHARACTER
+ESC	=	1Bh	;^[, ESC = Escape
+RUBOUT	=	7Fh	;    DEL = Rubout (accepted as Backspace)
+ERC	=	7Fh		;illegal key
+REP	=	02		;repeat key
+CAPS	=	03		;repeat
+SHTK	=	04		;Shift key
+CTRL	=	05		;Control key
+CLRSRN	=	'Z'-40h		;Clear screen
+MCR	=	'L'-40h		;Form Feed (move cursor right)
+PMCHR	=	'>'		;Prompt character
+ERCHR	=	'?'		;Error character
+BKS	=	08h		;BACKSPACE
+EOFC	=	'Z'-40h		;Eof character (same as cpm)
+TAB	=	09h		;TAB
+INVV	=	80h		;Inverse video bit
+GESC	=	'a'		;Graphics escape toggle char
+	PAGE
+;	CP/M DEFINITIONS
+
+CVER	=	22		;CPM version number
+CBIOSV	=	SVER		;cbios version
+NDSKS	=	2
+K	=	1024
+ABTC	=	'C'-40h		;Abort character
+
+
+ALVS:	=	0Ch		;*** must be validated with CBIOS ***
+CSVS:	=	20h		;***  --------------------------- ***
+
+;DRIVE DEFINITIONS
+
+LSECB	=	256		;Length of a sector
+MTRK	=	40		;Maximum tracks
+MSEC	=	10		;Maximum Sectors
+FMTCHR	=	0E5h		;Data format char
+
+;	Set CP/M symbols.
+
+IOBYTE	=	3
+CDISK	=	4		;Current logged-in CPM disk
+SYS	=	5		;CPM Monitor call address
+SYSL	=	SYS+1		;(lwa of CP/m)
+TIMPTR	=	40h		;points to where time kept
+DBUF	=	80h		;Default disk buffer
+OM#LRAM	=	SYSL
+SYSR	=	0		;return to system
+SYSDSK	=	CDISK		;Contains current system disk #
+SYSDAT	=	10h		;Date in ddmmyy
+SYSTIM	=	SYSDAT+3	;Time in hhmmss
+ORGP	=	100h		;Transient program origin
+;EOL				;does not exist in CP/M
+EOM	=	'$'		;End of Message (for system function)
+EOF	=	'Z'-40h		;End of File
+L$PRU	=	128		;Bytes per floppy sector
+
+FCB	=	5Ch		;SYSTEM DEFAULT FILE CONTROL BLOCK
+FCB_NR	=	FCB+32		;Next Record = LRN
+F_EX	=	12		;Extend field
+F_S2	=	14		;CPM system usage **used with 2.0 SIZ funct**
+F_RC	=	15		;Record count (0 to 128)
+F_NR	=	32		;Next record ordinal in FCB
+F_RRF	=	33		;r0,r1,r2 (random field) in FCB
+L_FILEN	=	8		;length of File name
+L_FILEX	=	3		;length of filename suffix
+L_FCB	=	36		;length of entire FCB (comp with 2.0)
+DMA	=	80h		;WHERE SECTORS ARE READ
+TBUFF	=	DMA		;where CCP puts command line
+
+OS#RCO	=	1		;Read character from CRT:
+OS#WCO	=	2		;Write character to CRT: device
+OS#RRO	=	3		;Read from reader
+OS#WPO	=	4		;Write to punch
+OS#WLO	=	5		;Write character to LST: device
+OS#OST	=	9		;Write string on CRT:
+OS#RCB	=	10		;Read Console Buffer
+OS#CABT	=	11		;Get Console status
+OS#VER	=	12		;Return version in HL
+				;H= 0, L=0   if 1.4
+				;H= 0, L=xx  if 2.0 or >
+				;H= 1, L=0   if MPM 1.0
+OS#IND	=	13		;Initialize/Reset Disk system
+OS#DSEL	=	14		;Select disk unit
+OS#OPEN	=	15		;Open file
+OS#CLOS	=	16		;Close file
+OS#SDIR	=	17		;Search directory
+OS#NDIR	=	18		;next entry in directory
+OS#DEL	=	19		;Delete a file
+OS#READ	=	20		;READ next pru from file
+OS#WRT	=	21		;Write one PRU to file
+OS#CRE	=	22		;Create a file
+OS#REN	=	23		;rename a file
+OS#RLV	=	24		;Return login vector
+OS#RCD	=	25		;Return current disk
+OS#SDMA	=	26		;Set DMA address
+
+;	CPM 2.x functions
+OS#DIO	=	6		;Console direct I/O
+OS#GAA	=	27		;Get adr (alloc)
+OS#SWP	=	28		;Set write protect for disk
+OS#GRO	=	29		;Get r/o vector
+OS#SFA	=	30		;Set File attributes
+OS#GAD	=	31		;Get disk parms address
+OS#USC	=	32		;Get/set user code
+OS#RRD	=	33		;Read random
+OS#WRD	=	34		;Write random
+OS#FIZ	=	35		;Get file size in records
+OS#SRD	=	36		;Set random record
+OS#RDRV	=	37		;Reset drive
+OS#ADR	=	38		;Access drive
+OS#FDR	=	39		;Free drive
+OS#WRZ	=	40		;Write random with zero fill
+
+;	Direct BIO call definitions
+BCONST	=	2*3		;Console status
+BCONIN	SET	3*3
+BCOUT	=	4*3		;Console output
+BLIST	=	5*3		;List output
+BPUNCH	=	6*3		;Punch output
+BRDR	=	7*3		;Reader input
+BHOME	=	8*3		;Home disk drive
+BSDSK	=	9*3		;Select Disk drive
+BSTTRK	=	10*3		;Set track
+BSTSEC	=	11*3		;Set sector
+BSTDMA	=	12*3		;Set DMA
+BREAD	=	13*3		;READ disk pru
+BWRITE	=	14*3		;WRITE disk pru
+BLSTS	=	15*3		;List LST: device status
+BSECTR	=	16*3		;Sector translate routine
+
+;	Extensions added by SORCIM
+BRRXT	=	17*3		;Ram-Rom exit
+BROMJP	=	18*3		;Rom jump entry
+BFMTJP	=	19*3		;Format Track
+BSBAUD	=	20*3		;Set Serial Port Baud Rate
+;	IEEE-488 calls
+BIECO	=	21*3		;Control Out
+BIESI	=	22*3		;Status In
+BIEGTS	=	23*3		;Go To Standby
+BIETC	=	24*3		;Take Control
+BIEOIM	=	25*3		;Output Interface Message
+BIEODM	=	26*3		;Output Device Message
+BIEIDM	=	27*3		;Input Device Message
+BIEPP	=	28*3		;Parallel Poll
+
+
+;BIOCAL	Used to make calls directly to BIO
+
+BIOCAL	MACRO	NAME
+	LXI	HL,L%K
+	PUSH	HL		;return
+	LHLD	SYSR+1
+	MVI	L,%1
+	PCHL
+L%K:
+	ENDM
+	space	4,10
+;SYSCAL
+;	This macro is to be used when the common deck
+;	SYS<C or P>.ACD is used to make file action
+;	requests.
+SYSCAL	MACRO	NAME,ARG
+.1	IF	' %2' <> ' '
+	LXI	DE,%2
+.1	ENDIF
+	CALL	%1
+	ENDM
+	space	4,10
+;	SYSTEM	This macro provides a mechanism to call the
+;	system directly.
+SYSTEM	MACRO	FUN,ARG
+.2	IF	DEF OS#%1
+	MVI	C,OS#%1
+.1	IF	' %2' <> ' '
+	LXI	DE,%2
+.1	ENDIF
+	CALL	SYS
+.2	ELSE
+	CALL	%1
+.2	ENDIF
+	ENDM
+
+
+;	ALIGN	Set origin to even boundary.
+
+ALIGN	MACRO	SIZ,O
+	DS	(*%2+(%1)-1)/(%1)*(%1)-*%2
+	ENDM
+
+;KEYBOARD CONSTANTS
+
+KL_LEN	=	3			;KEY LIST LENTH
+KLE_LEN	=	2			;KEY LIST ENTRY LENTH
+
+KL_USED	=	7			;KEYLIST ENTRY USED
+KY_SRVD	=	6			;KEY SERVICED ONCE
+KROW_M	=	38H			;ROW NUMBER MASK
+KCOL_M	=	7H			;COL NUMBER MASK
+
+RPTCTR	=	1			;REPEAT COUNT
+ROW0_M	=	81H			;MASK FOR ADDRESSING ROW 0
+
+DB_CT	=	1			;DEBOUNCE COUNT
+IRPTCT	=	24			;INITIAL REPEAT COUNT (400MS)
+SRPTCT	=	6			;SECOND REPEAT COUNT (100MS)
+
+TOT_ROW	=	7			;TOTAL ROWS
+
+CTL_KY	=	2			;COLUMN NUMBER OF CTL,ALPHA AND SHIFT KEYS
+ALPH_KY	=	3
+SHFT_KY	=	4
+
+SLD_RCT	=	3			;REPEAT COUNT FOR SLIDE KEYS (50MS APPROX)
+
+;	Macros to enable ROM, RAM and DIM code
+ENAROM	MACRO
+	DI
+	OUT	0
+	XRA	A
+	STO	A,ROMRAM
+	EI
+	ENDM
+
+DISROM	MACRO
+	DI
+	OUT	1
+	LDK	A,1
+	STO	A,ROMRAM
+	EI
+	ENDM
+
+BRTBIT:	=	80h			;set brt/dim memory BRIGHT
+DIMBIT:	=	00h			;set brt/dim memory DIM
+
+ENADIM	MACRO
+	OUT	2
+	ENDM
+
+DISDIM	MACRO
+	OUT	3
+	ENDM
+
+PUSHAL	MACRO
+	PUSH	BC
+	PUSH	DE
+	PUSH	HL
+	ENDM
+
+POPALL	MACRO
+	POP	HL
+	POP	DE
+	POP	BC
+	ENDM
+
+;	Endx	SYSTEXT
+

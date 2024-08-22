@@ -1,0 +1,62 @@
+
+
+
+	Subject: O1 ROM rev 1.44 release
+
+	From: Sai Kit
+
+	Date: 2/4/1983
+
+
+	__________________________________________________________________
+
+
+	The ROM 1.44 Source diskette contains the ROM rev 1.44 source
+	program .
+
+	The ACT80 diskette contains the ACT 80 assembler .
+
+
+	The difference between ROM rev 1.43 and rev 1.44 is listed in the
+	beginning of the source listing .
+
+	
+	Generation procedure :
+
+		Hardware environment - O1 double density computer with Corvus ROM
+				     - Corvus Hard Disk System	
+	
+		Assembler - ACT 80 assembler
+	
+	
+
+		Procedure to generate the hex object file for ROM rev 1.44
+
+			- insert ACT80 diskette into drive A
+			- insert ROM 1.44 diskette into drive B
+			- type <cr> to boot system
+			- type 'ACT B:ROM144 H=B:' <cr>
+
+		   This will result in a HEX file in disk B
+
+		
+		Procedure to generate the print file for ROM rev 1.44
+
+		   Since the print file is over 200k in size , Corvus
+		   environment is assumed .
+
+
+			- boot system off Corvus  
+			- insert ROM 1.44 diskette into drive P
+			- type 'ACT P:ROM144 L=B: R=F' <cr>
+			
+
+		   This will result in a PRN file in Corvus drive B
+
+
+
+		The HEX file can be used to generate the ROM by 
+		a ROM burner .
+
+
+	
