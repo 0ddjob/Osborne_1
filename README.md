@@ -3,6 +3,7 @@
 - [2732] Original Osborne BIOS vers. 1.40 (from my Osborne)
 - [2732] Original Osborne BIOS vers. 1.44 (latest)
 - [2732] 3rd Party Micro Management OZROM 1E (thanks to user [nelgin](https://forum.vcfed.org/index.php?threads/osborne-1-screen-flash.1245908/post-1400583) on VCFED Forums)
+- OZROM manual (cleaned up version thanks to VCFED user booboo)
 - [2764] Combined OCC v1.44 & OZROM (would require a daughterboard & switch)
 - [2716] Original Osborne character generator ROM (from my Osborne)
 
