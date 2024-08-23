@@ -28,7 +28,7 @@ Differences between ROM v1.4 and v1.44 include:
 [21-Aug-2024: test boards in transit]  
 ROM daughterboard to accomodate 28-pin 2764 (8KByte) EPROM in the Osborne's 24-pin 2732 (4KByte) BIOS socket.  Idea is to allow switching between the official Osborne ROM and the 3rd party OZROM.  
 
-Address pin A12 is pulled high by the 10KΩ resistor or can be switched to ground via a strapping or switch connected to the A12 pin headers.
+Address pin A12 is pulled high by the 10KΩ resistor (so default is upper ROM address range 0x1000 to 0x1FFF) or can be switched to ground via a strapping or switch connected to the A12 pin header (so lower ROM address range 0x0000 to 0x0FFF).
 
 ![3D image of daughterboard](/images/Osborne_2732_to_2764.png)
 
