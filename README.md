@@ -2,7 +2,7 @@
 ## [ROMs](/ROM)
 - [2732] Original Osborne BIOS vers. 1.40 (from my Osborne)
 - [2732] Original Osborne BIOS vers. 1.44 (latest)
-- [2732] 3rd Party Micro Management OZROM 1E (thanks to user [neglin](https://forum.vcfed.org/index.php?threads/osborne-1-screen-flash.1245908/post-1400583) on VCFED Forums)
+- [2732] 3rd Party Micro Management OZROM 1E (thanks to user [nelgin](https://forum.vcfed.org/index.php?threads/osborne-1-screen-flash.1245908/post-1400583) on VCFED Forums)
 - [2764] Combined OCC v1.44 & OZROM (would require a daughterboard & switch)
 - [2716] Original Osborne character generator ROM (from my Osborne)
 
@@ -24,8 +24,12 @@ Differences between ROM v1.4 and v1.44 include:
 ![Image of OZROM](/images/OZROM_1E.jpg)
 
 ## [Daughterboard](/2732-to-2764)
-[21-Aug-2024: sent to PCBWAY for fabbing test boards]  
-ROM daughterboard to accomodate 28-pin 2764 (8KByte) EPROM in the Osborne's 24-pin 2732 (4KByte) BIOS socket.  Idea is to allow switching between the official Osborne ROM and the 3rd party OZROM.
+[21-Aug-2024: test boards in transit]  
+ROM daughterboard to accomodate 28-pin 2764 (8KByte) EPROM in the Osborne's 24-pin 2732 (4KByte) BIOS socket.  Idea is to allow switching between the official Osborne ROM and the 3rd party OZROM.  
+
+Address pin A12 is pulled high by the 10KΩ resistor or can be switched to ground via a strapping or switch connected to the A12 pin headers.
+
+![3D image of daughterboard](/images/Osborne_2732_to_2764.png)
 
 ## [Using A Gotek](/Gotek)
 Big thanks to [Dave Dunfield](http://dunfield.classiccmp.org/index.htm) for the original ImageDisk-format (IMD) disk images.
