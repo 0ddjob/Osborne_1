@@ -24,8 +24,10 @@ Differences between ROM v1.4 and v1.44 include:
 ![Image of OZROM](/images/OZROM_1E.jpg)
 
 ## [Daughterboard](/2732-to-2764)
-[21-Aug-2024: sent to PCBWAY for fabbing test boards]  
+[21-Aug-2024: test boards in transit]  
 ROM daughterboard to accomodate 28-pin 2764 (8KByte) EPROM in the Osborne's 24-pin 2732 (4KByte) BIOS socket.  Idea is to allow switching between the official Osborne ROM and the 3rd party OZROM.
+
+![3D image of daughterboard](/images/Osborne_2732_to_2764.png)
 
 ## [Using A Gotek](/Gotek)
 Big thanks to [Dave Dunfield](http://dunfield.classiccmp.org/index.htm) for the original ImageDisk-format (IMD) disk images.
