@@ -36,6 +36,8 @@ Address pin A12 is pulled high by the 10KΩ resistor (so default is upper ROM ad
 Big thanks to [Dave Dunfield](http://dunfield.classiccmp.org/index.htm) for the original ImageDisk-format (IMD) disk images.
 
 How to tell if an Osborne 1 disk image is single density (SD) or double density (DD)?
+
+Both disk formats have 40 tracks:
 * SD disks have ten 256 byte sectors per track (2560 bytes/track)
 * DD disks have five 1024 byte sectors per track (5120 bytes/track)
 
