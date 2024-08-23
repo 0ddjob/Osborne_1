@@ -1098,7 +1098,7 @@
     (property "Value" "2732_ROM_Socket" (at 95.25 72.39 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Package_DIP:DIP-24_W15.24mm" (at 93.98 88.9 0)
+    (property "Footprint" "Open2327RomAdapter:DIP-24_W15.24mm-Notch" (at 93.98 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 93.98 88.9 0)
