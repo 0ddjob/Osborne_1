@@ -11,6 +11,7 @@ Always refer to the [FF repository](https://github.com/keirf/flashfloppy) for th
 * O1WSMM.HFE ... WordStar
 
 ## O1CPMS
+```
 0:
 autost.com
 copy.com
@@ -20,8 +21,9 @@ pip.com
 setup.com
 stat.com
 sysgen.com
-
+```
 ## O1CPMU
+```
 0:
 asm.com
 ddt.com
@@ -31,8 +33,9 @@ load.com
 stat.com
 submit.com
 xsub.com
-
+```
 ## O1SCALC
+```
 0:
 autost.com
 balance.cal
@@ -42,8 +45,9 @@ install.sub
 installs.com
 sc.com
 sc.ovl
-
+```
 ## O1BASIC
+```
 0:
 autost.com
 cbas2.com
@@ -53,8 +57,9 @@ mbasic.com
 tk.bas
 xdir.com
 xref.com
-
+```
 ## O1WSMM
+```
 0:
 autost.com
 mergprin.ovr
@@ -63,3 +68,4 @@ ws.com
 wsmsgs.ovr
 wsovly1.ovr
 xdir.com
+```
