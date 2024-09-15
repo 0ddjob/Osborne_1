@@ -51,4 +51,6 @@ Example output of ```fsed.cpm``` info command on an IMG disk image:
            Number of tracks: 40
           Sectors per track: 5
 ```
+## [EXMON Video Output](/EXMON)
+Photos of the EXMON video output shunt.
 
