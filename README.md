@@ -54,3 +54,6 @@ Example output of ```fsed.cpm``` info command on an IMG disk image:
 ## [EXMON Video Output](/EXMON)
 Photos of the EXMON video output shunt.
 
+* Sullins MP-0100-10-DS-4 card edge connector
+* Hyko K688-DI
+
