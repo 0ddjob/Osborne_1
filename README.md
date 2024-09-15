@@ -58,5 +58,5 @@ Photos of the EXMON video output shunt.
 * Hyko K688-DI - this appears to combine horizontal & vertical sync with the video output, powered by +12V
 
 
-![Pinout of EXMON](/EXMON/EXMON_6.jpg)
+![Pinout of EXMON](/EXMON/EXMON_7.jpg)
 
