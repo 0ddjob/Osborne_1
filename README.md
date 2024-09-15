@@ -55,5 +55,8 @@ Example output of ```fsed.cpm``` info command on an IMG disk image:
 Photos of the EXMON video output shunt.
 
 * Sullins MP-0100-10-DS-4 card edge connector
-* Hyko K688-DI
+* Hyko K688-DI - this appears to combine horizontal & vertical sync with the video output, powered by +12V
+
+
+![Pinout of EXMON](/EXMON/EXMON_5.jpg)
 
