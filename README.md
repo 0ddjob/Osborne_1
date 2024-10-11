@@ -1,6 +1,7 @@
 # Osborne Model 1
 ## [ROMs](/ROM)
 - [2732] Original Osborne BIOS vers. 1.40 (from my Osborne)
+- [2732] Original Osborne BIOS vers. 1.43
 - [2732] Original Osborne BIOS vers. 1.44 (latest)
 - [2732] 3rd party Micro Management OZROM 1E (thanks to user [nelgin](https://forum.vcfed.org/index.php?threads/osborne-1-screen-flash.1245908/post-1400583) on VCFED Forums)
 - OZROM manual (cleaned up version thanks to VCFED user booboo)
