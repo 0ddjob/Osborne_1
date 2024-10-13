@@ -61,3 +61,5 @@ Photos of the EXMON video output shunt.
 
 ![Pinout of EXMON](/EXMON/EXMON_7.jpg)
 
+## [Double Density Upgrade](/DD_Upgrade)
+Photos of the original Osborne DD upgrade board and details of a modern reproduction board.
