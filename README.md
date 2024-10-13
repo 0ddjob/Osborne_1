@@ -44,7 +44,7 @@ How to tell if an Osborne 1 disk image is single density (SD) or double density 
 
 Both disk formats have 40 tracks:
 * SD disks have ten 256 byte sectors per track (2560 bytes/track) -> 92KByte formatted capacity
-* DD disks have five 1024 byte sectors per track (5120 bytes/track) -> 182KByte formatted capacity
+* DD disks have five 1024 byte sectors per track (5120 bytes/track) -> 184KByte formatted capacity
 
 Example output of ```fsed.cpm``` info command on an IMG disk image:
 ```
