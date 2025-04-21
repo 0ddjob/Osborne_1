@@ -7,6 +7,7 @@
 - OZROM manual (cleaned up version thanks to VCFED user booboo)
 - [2764] Combined OCC v1.44 & OZROM (requires daughterboard below)
 - [2716] Original Osborne character generator ROM (from my Osborne)
+- [2716] Original Osborne Screen Pac BIOS Rev. A
 
 Differences between ROM v1.4 and v1.44 include:
 ```
@@ -63,3 +64,6 @@ Photos of the EXMON video output shunt.
 
 ## [Double Density Upgrade](/DD_Upgrade)
 Photos of the original Osborne DD upgrade board and details of a modern reproduction board.
+
+## [Screen Pac Upgrade](/Screen_Pac/)
+Photos of the Screen Pac board.
